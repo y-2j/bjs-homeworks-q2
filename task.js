@@ -65,7 +65,6 @@ function askDrink(name,dateOfBirthday){
    let personAge = currentDate.getFullYear() - dateOfBirthday.getFullYear();
    console.log(personAge);
    let result = "";
-   // Вывод сообщения на консоль в зависимости от условий
    if (personAge >= 18) {
      result = `Не желаете ли олд-фэшн, ${name}?`;
      console.log(result);
