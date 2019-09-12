@@ -1,4 +1,4 @@
-
+"use strict"
 
 function calculateQuadraticEquation(){
     let a = +window.a.value;
@@ -11,8 +11,21 @@ function calculateQuadraticEquation(){
 }
 
 function getResult(a,b,c){
-    // код для задачи №1 писать здесь
-    //return x;
+    let result ='';
+    let discrim = b**2 - 4 * a * c;
+    
+    if (discrim < 0) { 
+      result = null;
+      console.log(result);
+   } else if (discrim == 0) {
+       result = (-b + Math.sqrt(discrim)) / (2*a);;
+       console.log(result);
+   } else if (discrim > 0) {
+       result = [(-b + Math.sqrt(discrim)) / (2*a), (-b - Math.sqrt(discrim)) / (2*a)];
+       console.log(result);
+   }
+  
+     return result;
 }
 
 function calculateAverageRating(){
@@ -22,8 +35,22 @@ function calculateAverageRating(){
 }
 
 function getAverageMark(marks){
-    // код для задачи №2 писать здесь
-    //return averageMark;
+    let sumResult = 0;
+    let averageMark = '';
+    const numberMarks = 5;
+    for (let i = 0; i < marks.length; i++) {
+      sumResult = sumResult + marks[i];
+      if (marks.length > numberMarks) {
+          console.log(marks.length);   
+          marks.splice(numberMarks);
+      } 
+    }
+
+    averageMark = sumResult / marks.length;
+    console.log(averageMark);
+    
+    return averageMark;
+ 
 }
 
 function calculateDrinkTask(){
@@ -34,7 +61,19 @@ function calculateDrinkTask(){
 }
 
 function askDrink(name,dateOfBirthday){
-    // код для задачи №3 писать здесь
-    //console.log(result)
-    //return result;
+    let currentDate  = new Date();
+   let personAge = currentDate.getFullYear() - dateOfBirthday.getFullYear();
+   console.log(personAge);
+   let result = "";
+   // Вывод сообщения на консоль в зависимости от условий
+   if (personAge >= 18) {
+     result = `Не желаете ли олд-фэшн, ${name}?`;
+     console.log(result);
+     return result;
+   } else {
+     result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
+     console.log(result);
+     return result;
+   }
+ 
 }
